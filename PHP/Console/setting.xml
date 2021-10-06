@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <setting>
+        <DBDNS>mysql:dbname=mydb;host=database-4.cuhxsjr7puaa.ap-northeast-1.rds.amazonaws.com:3306;charset=utf8</DBDNS>
+        <!--<DBDNS>mysql:dbname=mydb;host=craftmysql.cuhxsjr7puaa.ap-northeast-1.rds.amazonaws.com:3306;charset=utf8</DBDNS>-->
+
+        <DBUser>admin</DBUser>
+        <DBPW>Nozomu_0037</DBPW>
+        <CheckKey>abc321</CheckKey>
+    </setting>
+</settings>

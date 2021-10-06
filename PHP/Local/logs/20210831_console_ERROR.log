@@ -1,0 +1,14 @@
+[2021-08-31 13:13:15.790][33896][ERROR] Bad CMD 1042
+[2021-08-31 14:03:10.386][33896][ERROR] {"token":"dl9alv1j1dad6jki6pv8j5hg9c","acc":"MeX3Uq6I5zX7","msg":"{\"Payload\":\"{ \\\"this\\\" : \\\"is a fake receipt\\\" }\",\"Store\":\"fake\",\"TransactionID\":\"0e5527c3-c2e9-423d-ad71-6a3aedeb9183\"}"}
+[2021-08-31 14:03:10.397][33896][ERROR] {"token":"dl9alv1j1dad6jki6pv8j5hg9c","acc":"MeX3Uq6I5zX7","msg":"\u8CFC\u5165\u6210\u529F:Acc = MeX3Uq6I5zX7, productId = craftstory_120, ProductType = Consumable"}
+[2021-08-31 14:15:41.148][33896][ERROR] {"token":"l3m01n865jsqr3b0ergr3p069p","acc":"MeX3Uq6I5zX7","msg":"\u8CFC\u5165\u6210\u529F:Acc = MeX3Uq6I5zX7, productId = craftstory_980, ProductType = Consumable"}
+[2021-08-31 14:15:41.154][33896][ERROR] {"token":"l3m01n865jsqr3b0ergr3p069p","acc":"MeX3Uq6I5zX7","msg":"{\"Payload\":\"{ \\\"this\\\" : \\\"is a fake receipt\\\" }\",\"Store\":\"fake\",\"TransactionID\":\"fce9d2ad-93b7-4498-b235-c33ea9270664\"}"}
+[2021-08-31 16:49:51.639][33896][ERROR] Bad CMD 1041
+[2021-08-31 16:51:02.398][33896][ERROR] Bad CMD 1041
+[2021-08-31 16:52:55.974][33896][ERROR] Bad CMD 1041
+[2021-08-31 17:13:40.557][33896][ERROR] Bad CMD 1041
+[2021-08-31 17:13:51.627][33896][ERROR] Bad CMD 1041
+[2021-08-31 17:17:25.789][33896][ERROR] Bad CMD 1041
+[2021-08-31 17:18:15.658][33896][ERROR] Bad CMD 1041
+[2021-08-31 17:20:11.081][33896][ERROR] Bad CMD 1041
+[2021-08-31 17:21:42.653][33896][ERROR] Bad CMD 1041

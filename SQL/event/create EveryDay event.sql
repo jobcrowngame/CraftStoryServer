@@ -1,0 +1,18 @@
+SET SQL_SAFE_UPDATES = 0;
+USE mydb;
+
+drop event EveryDay;
+
+DELIMITER |
+CREATE EVENT EveryDay
+ON SCHEDULE EVERY 1 DAY
+STARTS '2021-08-05 23:59:59'
+DO
+BEGIN
+
+CALL statistics;
+CALL clear;
+CALL refresh;
+
+END | 
+DELIMITER ;

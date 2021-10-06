@@ -1,0 +1,2 @@
+[2021-10-04 17:34:46.298][33716][ERROR] {"token":"cnbusue3sloqdhjc7ohqq6986q","acc":"Lv5GUrqNIcwK","msg":"{\"Payload\":\"{ \\\"this\\\" : \\\"is a fake receipt\\\" }\",\"Store\":\"fake\",\"TransactionID\":\"43698bc1-44c2-4fbb-9d20-c7f1dd23e060\"}"}
+[2021-10-04 17:34:46.298][33716][ERROR] {"token":"cnbusue3sloqdhjc7ohqq6986q","acc":"Lv5GUrqNIcwK","msg":"\u8CFC\u5165\u6210\u529F:Acc = Lv5GUrqNIcwK, productId = craftstory_1960, ProductType = Consumable"}

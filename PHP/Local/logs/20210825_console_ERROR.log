@@ -1,0 +1,5 @@
+[2021-08-25 10:41:37.352][22304][ERROR] Bad CMD 1039
+[2021-08-25 10:42:23.526][22304][ERROR] Bad CMD 1039
+[2021-08-25 10:42:26.384][22304][ERROR] Bad CMD 1039
+[2021-08-25 17:32:57.529][22304][ERROR] {"acc":"MeX3Uq6I5zX7","msg":"[ERROR][ACC:MeX3Uq6I5zX7]test\r\n  at LoginLg.Login (System.Int32 IsMaintenance) [0x00053] in D:\\Project\\CraftStory\\CraftStoryClient\\Assets\\Scripts\\UI\\LoginLG.cs:36 "}
+[2021-08-25 17:34:36.078][22304][ERROR] {"acc":"MeX3Uq6I5zX7","msg":"[ERROR]test\r\n  at LoginLg.Login (System.Int32 IsMaintenance) [0x00053] in D:\\Project\\CraftStory\\CraftStoryClient\\Assets\\Scripts\\UI\\LoginLG.cs:36 "}

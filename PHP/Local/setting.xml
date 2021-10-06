@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <setting>
+        <DBDNS>mysql:dbname=mydb;host=database-4.cuhxsjr7puaa.ap-northeast-1.rds.amazonaws.com:3306;charset=utf8</DBDNS>
+        <!--<DBDNS>mysql:dbname=mydb;host=craftmysql.cuhxsjr7puaa.ap-northeast-1.rds.amazonaws.com:3306;charset=utf8</DBDNS>-->
+        <DBUser>admin</DBUser>
+        <DBPW>Nozomu_0037</DBPW>
+
+        <IsMaintenance>0</IsMaintenance> <!--メンテナンス 0：OFF　１：ON　-->
+
+        <MyShopLvUPCost1>100</MyShopLvUPCost1>
+        <MyShopLvUPCost2>500</MyShopLvUPCost2>
+        <MyShopLoadBlueprintCost>100</MyShopLoadBlueprintCost>
+        <MyShopSearchCount>7</MyShopSearchCount>
+        <MyShopSalesTime>7</MyShopSalesTime>
+
+        <!--　フレンド　-->
+        <MaxFriendFollow>100</MaxFriendFollow>
+        <MaxFriendFollower>100</MaxFriendFollower>
+
+        <EmailSearchCount>10</EmailSearchCount>
+    </setting>
+</settings>
