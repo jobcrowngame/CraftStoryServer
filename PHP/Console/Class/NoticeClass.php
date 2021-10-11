@@ -7,13 +7,17 @@ class NoticeClass {
         $newflag = $post['newflag'];
         $activedate = $post['activedate'];
         $title = $post['title'];
+        $titleIcon = $post['titleIcon'];
+        $detailIcon = $post['detailIcon'];
+        $url = $post['url'];
         $text = $post['text'];
         $inputkey = $post["key"];
         if (PrivateKey::CheckKey($inputkey) == 1){
             return 1;
         }
 
-        $sql = "INSERT INTO notice (category,newflag,activedate,title,text) VALUES ($category,$newflag,'$activedate','$title','$text')";
+        $sql = "INSERT INTO notice (category,newflag,activedate,title,titleIcon,detailIcon,url,text) 
+            VALUES ($category,$newflag,'$activedate','$title','$titleIcon','$detailIcon','$url','$text')";
         MySqlPDB::$pdo->query($sql);
     }
 
@@ -34,6 +38,9 @@ class NoticeClass {
         $newflag = $post['newflag'];
         $activedate = $post['activedate'];
         $title = $post['title'];
+        $titleIcon = $post['titleIcon'];
+        $detailIcon = $post['detailIcon'];
+        $url = $post['url'];
         $text = $post['text'];
         $type = $post['type'];
         $inputkey = $post["key"];
@@ -47,15 +54,21 @@ class NoticeClass {
             NoticeClass::Delete($post);
         }
     }
+
     public static function Update($post){
         $id = $post['id'];
         $category = $post['category'];
         $newflag = $post['newflag'];
         $activedate = $post['activedate'];
         $title = $post['title'];
+        $titleIcon = $post['titleIcon'];
+        $detailIcon = $post['detailIcon'];
+        $url = $post['url'];
         $text = $post['text'];
 
-        $sql = "UPDATE notice SET category=$category,newflag=$newflag,activedate='$activedate',title='$title',text='$text' WHERE id=$id";
+        $sql = "UPDATE notice SET category=$category,newflag=$newflag,activedate='$activedate',title='$title',
+            titleIcon='$titleIcon',detailIcon='$detailIcon',url='$url',text='$text' 
+            WHERE id=$id";
         MySqlPDB::$pdo->query($sql);
     }
 

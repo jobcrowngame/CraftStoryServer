@@ -25,6 +25,18 @@
 <input type='text' name='title'>
 <br>
 
+<label>タイトルアイコン:</label>
+<input type='text' name='titleIcon'>
+<br>
+
+<label>詳細アイコン:</label>
+<input type='text' name='detailIcon'>
+<br>
+
+<label>URL:</label>
+<input type='text' name='url'>
+<br>
+
 <label for="text">内容:</label></br>
 <textarea name="text" rows="10" cols="50">
 It was a dark and stormy night...
