@@ -4,9 +4,7 @@
 <select name="category">
     <option value="1">お知らせ</option>
     <option value="2">重要</option>
-    <option value="3">メンテナンス</option>
-    <option value="4">予告</option>
-    <option value="5">イベント</option>
+    <option value="3">イベント</option>
 </select>
 <br>
 

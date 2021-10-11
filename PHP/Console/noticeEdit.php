@@ -15,24 +15,22 @@
 <br>
 
 <label for="category">カテゴリー:</label>
-<select name="category" value = "<?php echo $result['category']; ?>">
-    <option value="1">お知らせ</option>
-    <option value="2">重要</option>
-    <option value="3">メンテナンス</option>
-    <option value="4">予告</option>
-    <option value="5">イベント</option>
+<select name="category">
+    <option value="1" <?php if ( $result['category'] === '1' ) { echo ' selected'; } ?>>お知らせ</option>
+    <option value="2" <?php if ( $result['category'] === '2' ) { echo ' selected'; } ?>>重要</option>
+    <option value="3" <?php if ( $result['category'] === '3' ) { echo ' selected'; } ?>>イベント</option>
 </select>
 <br>
 
 <label for="newflag">Newフラグ：</label>
-<select name="newflag" value="<?php echo $result['newflag']; ?>">
-    <option value="1">ON</option>
-    <option value="2">OFF</option>
+<select name="newflag">
+    <option value="1" <?php if ( $result['newflag'] === '1' ) { echo ' selected'; } ?>>ON</option>
+    <option value="2" <?php if ( $result['newflag'] === '2' ) { echo ' selected'; } ?>>OFF</option>
 </select>
 <br>
 
 <label>日付：</label>
-<input type="date" name="activedate" style="width:160px" value='<?php echo $result['activedate']; ?>'>
+<input type="date" name="activedate" style="width:160px" value='<?php echo date_format(new DateTime($result['activedate']), 'Y-m-d'); ?>'>
 <br>
 
 <label>タイトル：</label>
