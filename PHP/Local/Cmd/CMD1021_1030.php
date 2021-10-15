@@ -72,7 +72,10 @@ class CMD1021_1030{
                 'category'=>$row['category'],
                 'newflag'=>$row['newflag'],
                 'activedate'=>$row['activedate'],
-                'title'=>$row['title']
+                'title'=>$row['title'],
+                'titleIcon'=>$row['titleIcon'],
+                'detailIcon'=>$row['detailIcon'],
+                'url'=>$row['url']
             );
         }
 
