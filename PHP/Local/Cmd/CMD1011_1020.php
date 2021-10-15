@@ -127,14 +127,6 @@ class CMD1011_1020{
         $offset = ($page - 1) * $selectCount;
         $salesTime = $xml->setting[0]->MyShopSalesTime;
 
-        $sql = "SELECT Count(myshopid) FROM myshop
-            WHERE isDiscard=0 
-                && (created_at + INTERVAL $salesTime day) > NOW() 
-                && acc != '$acc'";
-
-        $rerult = MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
-        $maxCount = $rerult['Count(myshopid)'];
-
         $sql = "SELECT * FROM myshop
             INNER JOIN limited ON myshop.acc = limited.acc
             WHERE isDiscard=0 
@@ -151,9 +143,12 @@ class CMD1011_1020{
             case 1:$sql = $sql." ORDER BY price ";break;
             case 2:$sql = $sql." ORDER BY created_at DESC ";break;
             case 3:$sql = $sql." ORDER BY created_at ";break;
-            case 4:$sql = $sql." ORDER BY sellNum DESC";break;
-            case 5:$sql = $sql." ORDER BY goodNum_total DESC";break;
+            case 4:$sql = $sql." ORDER BY sellNum DESC ";break;
+            case 5:$sql = $sql." ORDER BY goodNum_total DESC ";break;
         }
+
+        $result = MySqlPDB::$pdo->query($sql);
+        $maxCount = $result->rowCount();
 
         $sql = $sql." LIMIT ".$selectCount." OFFSET ".$offset;
         $result = MySqlPDB::$pdo->query($sql);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
     <setting>
-        <DBDNS>mysql:dbname=mydb;host=database-4.cuhxsjr7puaa.ap-northeast-1.rds.amazonaws.com:3306;charset=utf8</DBDNS>
+        <DBDNS>mysql:dbname=test;host=database-4.cuhxsjr7puaa.ap-northeast-1.rds.amazonaws.com:3306;charset=utf8</DBDNS>
         <!--<DBDNS>mysql:dbname=mydb;host=craftmysql.cuhxsjr7puaa.ap-northeast-1.rds.amazonaws.com:3306;charset=utf8</DBDNS>-->
         <DBUser>admin</DBUser>
         <DBPW>Nozomu_0037</DBPW>
@@ -18,6 +18,6 @@
         <MaxFriendFollow>100</MaxFriendFollow>
         <MaxFriendFollower>100</MaxFriendFollower>
 
-        <EmailSearchCount>10</EmailSearchCount>
+        <EmailSearchCount>7</EmailSearchCount>
     </setting>
 </settings>
