@@ -115,6 +115,7 @@ try{
                 case 1046: CMD1041_1050::GetMissionBonus_1046($data); break;
                 case 1047: CMD1041_1050::MyShopGoodEvent_1047($data); break;
                 case 1048: CMD1041_1050::GetBlueprintPreviewDataByItemGuid_1048($data); break;
+                case 1049: CMD1041_1050::GetGacha_1049($data); break;
                 
                 
                 case 6000: CMDOrder::SaveHomeData_6000($data); break;

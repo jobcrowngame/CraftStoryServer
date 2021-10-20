@@ -225,4 +225,18 @@ class CMD1041_1050{
 
         Common::Send($result['relationData']);
     }
+    
+    // ガチャ通算回数取得
+    public static function GetGacha_1049($json){
+        $acc = $json->{'acc'};
+        $gachaGroup = $json->{'gachaGroup'};
+
+        $result = StatisticsClass::GetGacha($acc, $gachaGroup);
+
+        $gacha = empty($result['gacha']) ? 0 : $result['gacha'];
+
+        Common::Send(array(
+            'gacha'=>$gacha
+        ));
+    }
 }
