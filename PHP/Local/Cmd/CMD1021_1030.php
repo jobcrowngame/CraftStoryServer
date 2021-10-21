@@ -264,7 +264,7 @@ class CMD1021_1030{
             case 9000: ShopClass::CostCoin($acc, 'coin1', $gachaConfig['CostCount']); break;
             case 9001: ShopClass::CostCoin($acc, 'coin2', $gachaConfig['CostCount']); break;
             case 9002: ShopClass::CostCoin($acc, 'coin3', $gachaConfig['CostCount']); break;
-            case 9003: ItemClass::RemoveItemByItemId($acc, $gachaConfig['Cost'], $gachaConfig['CostCount']); break
+            case 9003: ItemClass::RemoveItemByItemId($acc, $gachaConfig['Cost'], $gachaConfig['CostCount']); break;
         }
 
         // 統計

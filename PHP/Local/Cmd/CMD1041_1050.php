@@ -235,8 +235,6 @@ class CMD1041_1050{
 
         $gacha = empty($result['gacha']) ? 0 : $result['gacha'];
 
-        Common::Send(array(
-            'gacha'=>$gacha
-        ));
+        Common::Send($gacha);
     }
 }
