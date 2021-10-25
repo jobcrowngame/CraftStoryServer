@@ -184,6 +184,8 @@ class CMD1001_1010{
         try {
             $config = ConfigClass::ReadConfig('Shop')[$shopId];
             $result = MySqlPDB::$pdo->query("SELECT * FROM userdata WHERE acc='". $acc. "'")->fetch(PDO::FETCH_ASSOC);
+            $resultItemCoin = MySqlPDB::$pdo->query(
+                "SELECT ifnull(`count`, 0) coinCount FROM items WHERE acc='$acc' AND itemId='".($config['CostItemID'])."' AND isDiscard=0")->fetch(PDO::FETCH_ASSOC);
 
             // 持っているコインをチェック
             $coinCount = 0;
@@ -191,6 +193,7 @@ class CMD1001_1010{
                 case 9000:  $coinCount = $result['coin1']; break;
                 case 9001:  $coinCount = $result['coin2']; break;
                 case 9002:  $coinCount = $result['coin3']; break;
+                case 9004:  $coinCount = $resultItemCoin['coinCount']; break;
                 default: return;
             }
             if ($coinCount < $config['CostCount']){
@@ -198,10 +201,19 @@ class CMD1001_1010{
                     case 9000:  Common::error(1010001); break;
                     case 9001:  Common::error(1010002); break;
                     case 9002:  Common::error(1010003); break;
+                    case 9004:  Common::error(1010004); break;
                     default: LoggerClass::E()->error("[FailureCMD]1010001:".$acc.",".$shopId); return;
                 }
-                
                 return;
+            }
+
+            // 制限回数チェック
+            if ($config['CostItemID'] == 9004 && $config['LimitedCount'] != -1) {
+                $shopLimitedCount = ShopLimitedCountClass::GetShopLimitedCount($acc, $shopId)['limitedCount'];
+                if($shopLimitedCount >= $config['LimitedCount']) {
+                    Common::error(1010005);
+                    return;
+                }
             }
 
             // アイテム追加
@@ -229,8 +241,13 @@ class CMD1001_1010{
                 case 9000: ShopClass::UpdateCoin($acc, 'coin1', $result['coin1'] - $config['CostCount']); break;
                 case 9001: ShopClass::UpdateCoin($acc, 'coin2', $result['coin2'] - $config['CostCount']); break;
                 case 9002: ShopClass::UpdateCoin($acc, 'coin3', $result['coin3'] - $config['CostCount']); break;
+                case 9004: ItemClass::RemoveItemByItemId($acc, $config['CostItemID'], $config['CostCount']); break;
             }
 
+            // 制限回数更新
+            if ($config['CostItemID'] == 9004 && $config['LimitedCount'] != -1) {
+                ShopLimitedCountClass::AddLimitedCount($acc, $shopId);
+            }
             Common::Send("");
         }catch (PDOException $e) {
 			LoggerClass::E()->error($e);

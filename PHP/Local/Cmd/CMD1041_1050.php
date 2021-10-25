@@ -237,4 +237,23 @@ class CMD1041_1050{
 
         Common::Send($gacha);
     }
+    
+    // 制限回数取得
+    public static function GetAllShopLimitedCounts_1050($json){
+        $acc = $json->{'acc'};
+
+        $result = ShopLimitedCountClass::GetAllShopLimitedCounts($acc);
+
+        while($row = $result->fetch(PDO::FETCH_ASSOC)){
+            $items[]=array(
+                'shopId'=>$row['shopId'],
+                'limitedCount'=>$row['limitedCount'],
+            );
+        }
+
+        if (empty($items))
+            Common::Send("");
+        else
+            Common::Send($items);
+    }
 }
