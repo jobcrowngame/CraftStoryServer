@@ -118,7 +118,8 @@ try{
                 case 1049: CMD1041_1050::GetGacha_1049($data); break;
                 case 1050: CMD1041_1050::GetAllShopLimitedCounts_1050($data); break;     
                 
-                case 1051: CMD1051_1060::GetShopLimitedCount_1051($data); break;               
+                case 1051: CMD1051_1060::GetShopLimitedCount_1051($data); break;
+				case 1052: CMD1051_1060::GetEquipmentInfo_1052($data); break;
                 
                 case 6000: CMDOrder::SaveHomeData_6000($data); break;
                 case 6001: CMDOrder::LoadHomeData_6001($data); break;

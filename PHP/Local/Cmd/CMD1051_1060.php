@@ -12,4 +12,16 @@ class CMD1051_1060{
 
         Common::Send($limitedCount);
     }
+
+    public static function GetEquipmentInfo_1052($json){
+        $acc = $json->{'acc'};
+        $itemGuid = $json->{'itemGuid'};
+
+        $sql = "SELECT * FROM equipment WHERE item_guid=$itemGuid";
+        $result = MySqlPDB::$pdo->query($sql)->fetch();
+
+        Common::Send(array(
+            'skills'=>$result['skills'],
+        ));
+    }
 }

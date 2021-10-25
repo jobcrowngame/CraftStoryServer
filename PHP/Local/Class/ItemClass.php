@@ -160,4 +160,27 @@ class ItemClass{
         $sql = "UPDATE items SET isDiscard = 1 WHERE id = $guid";
         MySqlPDB::$pdo->query($sql);
     }
+
+    // 装備データ追加
+    public static function AddEquipment($itemGuid, $skills){
+        $sql = "SELECT id FROM equipment WHERE isDiscard = 1";
+        $result = MySqlPDB::$pdo->query($sql)->fetch();
+
+        print_r($result);
+
+        if  (empty($result)){
+            $sql = "INSERT INTO equipment (item_guid, skills) 
+                VALUES ($itemGuid, '$skills')";
+        }else{
+            $id = $result['id'];
+
+            $sql = "UPDATE equipment 
+                SET item_guid=$itemGuid,
+                    skills=$skills,
+                    isDiscard=0
+                WHERE id=$id";
+        }
+
+        MySqlPDB::$pdo->query($sql);
+    }
 }
