@@ -6,7 +6,7 @@ class Common{
             'error'=>0,
             'result'=>$msg
         );
-        $result = json_encode($result, JSON_NUMERIC_CHECK);
+        $result = json_encode($result);
         // echo $result."<br>";
         $cdata = CryptClass::encryptRJ256($result);
         echo $cdata;

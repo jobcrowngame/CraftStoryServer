@@ -5,8 +5,8 @@ class CMD0_1000{
 		$xml = @simplexml_load_file('../setting.xml');
 
 		Common::Send(array(
-			'version'=>''.$xml->setting[0]->Version,
-			'IsMaintenance'=>''.$IsMaintenance
+			'version'=>(string)$xml->setting[0]->Version,
+			'IsMaintenance'=>$IsMaintenance
 		));
 	}
 
@@ -137,4 +137,6 @@ class CMD0_1000{
 			LoggerClass::E()->error($e);
 		}
 	}
+
+	
 }
