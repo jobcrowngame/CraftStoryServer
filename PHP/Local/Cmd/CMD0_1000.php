@@ -132,6 +132,8 @@ class CMD0_1000{
 				'comment'=>$result['comment'],
 				'email'=>$result['email'],
 				'goodNum'=>$result['goodNum_daily'],
+				'lv'=>$result['lv'],
+				'exp'=>$result['exp'],
 			));
 		} catch (PDOException $e) {
 			LoggerClass::E()->error($e);

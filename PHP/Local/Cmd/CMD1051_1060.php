@@ -94,4 +94,38 @@ class CMD1051_1060{
 
         Common::Send($skills);
     }
+
+    // 経験値を追加
+    public static function AddExp_1055($json){
+        $acc = $json->{'acc'};
+        $exp = $json->{'exp'};
+
+        // 現在の経験値ゲット
+        $sql = "SELECT exp,lv FROM userdata WHERE acc ='$acc'";
+        $result = MySqlPDB::$pdo->query($sql)->fetch();
+        $curExp = $result['exp'] + $exp;
+        $lv = $result['lv'];
+
+        $upLv = 0;
+        $config = ConfigClass::ReadConfig('Character')[$lv];
+        $nextLvUpExp = $config['LvUpExp'];
+
+        while ($curExp >= $nextLvUpExp){
+            $upLv++;
+            $curExp -= $nextLvUpExp;
+
+            // 次レベルアップコストExpをゲット
+            $config = ConfigClass::ReadConfig('Character')[$lv + $upLv];
+            $nextLvUpExp = $config['LvUpExp'];
+        }
+
+        // データ更新
+        $sql = "UPDATE userdata SET exp=$curExp,lv=lv+$upLv WHERE acc='$acc'";
+        MySqlPDB::$pdo->query($sql);
+        
+        Common::Send(array(
+            'lv'=>$lv + $upLv,
+            'exp'=>$curExp,
+        ));
+    }
 }

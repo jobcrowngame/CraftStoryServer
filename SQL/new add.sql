@@ -8,3 +8,6 @@ CREATE TABLE equipment (
     skills TEXT,
     isDiscard BOOL DEFAULT 0
 );
+
+ALTER TABLE  userdata ADD lv INT DEFAULT 1 AFTER email;
+ALTER TABLE  userdata ADD exp INT DEFAULT 0 AFTER Lv;

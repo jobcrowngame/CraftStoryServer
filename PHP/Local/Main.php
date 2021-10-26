@@ -122,6 +122,7 @@ try{
 				case 1052: CMD1051_1060::GetEquipmentInfo_1052($data); break;
 				case 1053: CMD1051_1060::GetEquipmentInfoList_1053($data); break;
 				case 1054: CMD1051_1060::AppraisalEquipment_1054($data); break;
+				case 1055: CMD1051_1060::AddExp_1055($data); break;
                 
                 case 6000: CMDOrder::SaveHomeData_6000($data); break;
                 case 6001: CMDOrder::LoadHomeData_6001($data); break;
