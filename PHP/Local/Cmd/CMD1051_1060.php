@@ -31,7 +31,6 @@ class CMD1051_1060{
         $sql = "SELECT items.id,items.itemId,items.islocked,equipment.skills FROM items 
             LEFT JOIN equipment ON items.id = equipment.item_guid 
             WHERE items.isDiscard=0 
-            AND equipment.isDiscard=0 
             AND items.acc='$acc' 
             AND items.itemId > 10000";
         $result = MySqlPDB::$pdo->query($sql);
