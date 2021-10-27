@@ -131,4 +131,20 @@ class CMD1051_1060{
             'exp'=>$curExp,
         ));
     }
+    
+    // フロア到達
+    public static function ArriveFloor_1056($json) {
+        $acc = $json->{'acc'};
+        $arrivedFloor = $json->{'arrivedFloor'};
+        try{
+            StatisticsClass::UpdateMaxArrivedFloor($acc, $arrivedFloor);
+            StatisticsClass::UpdateLastFloorCount($acc, $arrivedFloor);
+            
+            Common::Send('');
+        } catch (Exception $e){
+            LoggerClass::E()->error($e->getMessage(), "\n");
+            LoggerClass::E()->error($e);
+            Common::error(999);
+        }
+    }
 }
