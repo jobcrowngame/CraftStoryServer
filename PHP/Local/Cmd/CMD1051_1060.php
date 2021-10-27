@@ -146,4 +146,24 @@ class CMD1051_1060{
             Common::error(999);
         }
     }
+
+    // 復活
+    public static function Resurrection_1057($json){
+        $acc = $json->{'acc'};
+
+        $coin = 'coin1';
+
+        // 設定ファイルからコストをゲット
+        $xml = @simplexml_load_file('setting.xml');
+        $count = $xml->setting[0]->ResurrectionCost;
+
+        // クラフトシード消耗
+        $result = ShopClass::CostCoin($acc, $coin, $count);
+
+        if ($result == 1){
+            Common::error(1057001);
+        }else{
+            Common::Send("");
+        }
+    }
 }
