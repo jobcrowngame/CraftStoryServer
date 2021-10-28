@@ -36,6 +36,9 @@ class CMD0_1000{
 			ItemClass::AddItem3($acc, 105,100,1);
 			ItemClass::AddItem3($acc, 101,100,2);
 			ItemClass::AddItem3($acc, 3001,1,3);
+			ItemClass::AddItem3($acc, 10001,1,0);
+			ItemClass::AddItem3($acc, 10002,1,0);
+			ItemClass::AddItem3($acc, 10003,1,0);
 
 			Common::Send(array(
 				'acc'=>$acc,
