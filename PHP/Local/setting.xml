@@ -13,6 +13,8 @@
         <MyShopLoadBlueprintCost>100</MyShopLoadBlueprintCost>
         <MyShopSearchCount>7</MyShopSearchCount>
         <MyShopSalesTime>7</MyShopSalesTime>
+        <LastFloor>7</LastFloor>
+
 
         <!--　フレンド　-->
         <MaxFriendFollow>100</MaxFriendFollow>
