@@ -77,9 +77,12 @@ class CMD0_1000{
 			// limited　テーブルにない場合、追加
 			$sql = "SELECT * FROM limited WHERE acc='".$acc."'";
 			$result = MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+			$myGoodNum = $result['goodNum_total'];
+
 			if (empty($result)){
 				$sql = "INSERT INTO limited (acc) VALUES ('".$acc."')";
 				MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+				$myGoodNum = 0;
 			}
 
 			// サブスクリプションメールを送る
@@ -137,6 +140,7 @@ class CMD0_1000{
 				'goodNum'=>$result['goodNum_daily'],
 				'lv'=>$result['lv'],
 				'exp'=>$result['exp'],
+				'exp'=>$myGoodNum,
 			));
 		} catch (PDOException $e) {
 			LoggerClass::E()->error($e);
