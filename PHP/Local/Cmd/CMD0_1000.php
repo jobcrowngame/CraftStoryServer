@@ -140,7 +140,7 @@ class CMD0_1000{
 				'goodNum'=>$result['goodNum_daily'],
 				'lv'=>$result['lv'],
 				'exp'=>$result['exp'],
-				'exp'=>$myGoodNum,
+				'myGoodNum'=>$myGoodNum,
 			));
 		} catch (PDOException $e) {
 			LoggerClass::E()->error($e);
