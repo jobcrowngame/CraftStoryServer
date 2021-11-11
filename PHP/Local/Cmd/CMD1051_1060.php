@@ -166,4 +166,13 @@ class CMD1051_1060{
             Common::Send("");
         }
     }
+
+    // トータル設置済ブロック数を取得
+    public static function GetTotalSetBlockCount_1058($json){
+        $acc = $json->{'acc'};
+        $result = StatisticsClass::GetTotalSetBlockCount($acc);
+        $totalSetBlockCount = empty($result['totalSetBlockCount']) ? 0 : $result['totalSetBlockCount'];
+        Common::Send($totalSetBlockCount);        
+    }
+
 }

@@ -33,9 +33,9 @@ class CMD0_1000{
 			MySqlPDB::$pdo->query($sql);
 
 			// デフォルトのアイテムを追加
-			ItemClass::AddItem3($acc, 105,100,1);
-			ItemClass::AddItem3($acc, 101,100,2);
-			ItemClass::AddItem3($acc, 3001,1,3);
+			// ItemClass::AddItem3($acc, 105,100,1);
+			// ItemClass::AddItem3($acc, 101,100,2);
+			// ItemClass::AddItem3($acc, 3001,1,3);
 			ItemClass::AddItem3($acc, 10001,1,0);
 			ItemClass::AddItem3($acc, 10002,1,0);
 			ItemClass::AddItem3($acc, 10003,1,0);
@@ -134,6 +134,8 @@ class CMD0_1000{
 				'myShopLv'=>$result['myShopLv'],
 				'guide_end'=>$result['guide_end'],
 				'guide_end2'=>$result['guide_end2'],
+				'guide_end3'=>$result['guide_end3'],
+				'guide_end4'=>$result['guide_end4'],
 				'nickname'=>$result['nickname'],
 				'comment'=>$result['comment'],
 				'email'=>$result['email'],

@@ -1,2 +1,0 @@
-[2021-09-06 10:03:00.681][25360][ERROR] {"token":"k9qq8as9ekk0ksakgpgvcb2mp0","acc":"2zMZDLfsezdv","msg":"\u8CFC\u5165\u6210\u529F:Acc = 2zMZDLfsezdv, productId = craftstory_1960, ProductType = Consumable"}
-[2021-09-06 10:03:00.690][25360][ERROR] {"token":"k9qq8as9ekk0ksakgpgvcb2mp0","acc":"2zMZDLfsezdv","msg":"{\"Payload\":\"{ \\\"this\\\" : \\\"is a fake receipt\\\" }\",\"Store\":\"fake\",\"TransactionID\":\"d742c331-8cad-4052-b95e-abac4ecb8066\"}"}

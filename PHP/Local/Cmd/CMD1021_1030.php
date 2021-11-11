@@ -230,10 +230,20 @@ class CMD1021_1030{
             $columName = "guide_end";
         }else if ($guidId == 2){
             $columName = "guide_end2";
+        }else if ($guidId == 3){
+            $columName = "guide_end3";
+        }else if ($guidId == 4){
+            $columName = "guide_end4";
         }
 
 		$sql = "UPDATE limited SET $columName = 1 WHERE acc = '$acc'";
 		MySqlPDB::$pdo->query($sql);
+
+        if  ($guidId == 1){
+            EmailClass::AddEmailInItem($acc, 2002);
+        }else if ($guidId == 3){
+            EmailClass::AddEmailInItem($acc, 2001);
+        }
 
         Common::Send("");
 	}

@@ -117,6 +117,10 @@ class CMD1041_1050{
 
         $sql = "UPDATE limited SET $columName='$newValue' WHERE acc='$acc'";
         MySqlPDB::$pdo->query($sql);
+        
+        if ($missionId == 4 && $missionType == 1) {
+            StatisticsClass::AddTotalSetBlockCount($acc);
+        }
 
         Common::Send("");
     }

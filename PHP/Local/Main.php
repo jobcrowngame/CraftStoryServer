@@ -125,6 +125,7 @@ try{
 				case 1055: CMD1051_1060::AddExp_1055($data); break;
 				case 1056: CMD1051_1060::ArriveFloor_1056($data); break;
 				case 1057: CMD1051_1060::Resurrection_1057($data); break;
+				case 1058: CMD1051_1060::GetTotalSetBlockCount_1058($data); break;
                 
                 case 6000: CMDOrder::SaveHomeData_6000($data); break;
                 case 6001: CMDOrder::LoadHomeData_6001($data); break;

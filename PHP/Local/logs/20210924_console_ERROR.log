@@ -1,4 +1,0 @@
-[2021-09-24 17:00:02.405][19292][ERROR] {"token":"mk1gejker2ocdekcnrt2a53uds","acc":"v6hrwzMYhvXU","msg":"{\"Payload\":\"{ \\\"this\\\" : \\\"is a fake receipt\\\" }\",\"Store\":\"fake\",\"TransactionID\":\"446e3801-a705-4aac-908d-913d5ea67fbe\"}"}
-[2021-09-24 17:00:02.405][19292][ERROR] {"token":"mk1gejker2ocdekcnrt2a53uds","acc":"v6hrwzMYhvXU","msg":"\u8CFC\u5165\u6210\u529F:Acc = v6hrwzMYhvXU, productId = craftstory_4900, ProductType = Consumable"}
-[2021-09-24 20:58:53.220][19292][ERROR] {"token":"0ubhah9v177jald2tmo9i4qdnq","acc":"v6hrwzMYhvXU","msg":"\u8CFC\u5165\u6210\u529F:Acc = v6hrwzMYhvXU, productId = craftstory_4900, ProductType = Consumable"}
-[2021-09-24 20:58:53.225][19292][ERROR] {"token":"0ubhah9v177jald2tmo9i4qdnq","acc":"v6hrwzMYhvXU","msg":"{\"Payload\":\"{ \\\"this\\\" : \\\"is a fake receipt\\\" }\",\"Store\":\"fake\",\"TransactionID\":\"5494dd25-5eed-467c-944d-a39366fb5cc0\"}"}

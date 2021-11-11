@@ -51,4 +51,15 @@ class StatisticsClass{
     private static function GetLastFloor(){
         $config = ConfigClass::ReadConfig('Map');
     }
+
+    public static function GetTotalSetBlockCount($acc) {
+        $sql = "SELECT totalSetBlockCount FROM statistics_user WHERE acc='$acc'";
+        return MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+    }    
+
+    public static function AddTotalSetBlockCount($acc){
+        StatisticsClass::CheckStatisticsTable($acc);
+        $sql = "UPDATE statistics_user SET totalSetBlockCount=totalSetBlockCount + 1 WHERE acc='$acc'";
+        MySqlPDB::$pdo->query($sql);
+    }
 }
