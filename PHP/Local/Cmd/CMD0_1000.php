@@ -143,6 +143,8 @@ class CMD0_1000{
 				'lv'=>$result['lv'],
 				'exp'=>$result['exp'],
 				'myGoodNum'=>$myGoodNum,
+				'mainTaskID'=>$result['main_task'],
+				'mainTaskClearedCount'=>$result['main_task_count'],
 			));
 		} catch (PDOException $e) {
 			LoggerClass::E()->error($e);
