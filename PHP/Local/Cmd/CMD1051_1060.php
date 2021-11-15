@@ -182,6 +182,7 @@ class CMD1051_1060{
 
         $config = ConfigClass::ReadConfig('MainTask')[$taskId];
         $clearCount = $config['ClearCount'];
+        $bonus = $config['Bonus'];
 
         $sql = "SELECT * FROM limited WHERE acc='$acc'";
         $result = MySqlPDB::$pdo->query($sql)->fetch();
@@ -202,7 +203,7 @@ class CMD1051_1060{
 
         // ボーナス与える
         $bonus = $config['Bonus'];
-        BonusClass::AddBonus($acc, $taskId);
+        BonusClass::AddBonus($acc, $bonus);
 
         // タスクデータ更新
         $sql = "UPDATE limited SET main_task=main_task + 1,main_task_count=0 WHERE acc='$acc'";
