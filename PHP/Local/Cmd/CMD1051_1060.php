@@ -205,7 +205,7 @@ class CMD1051_1060{
         BonusClass::AddBonus($acc, $taskId);
 
         // タスクデータ更新
-        $sql = "UPDATE limited SET main_task=main_task++,main_task_count=0 WHERE acc='$acc'";
+        $sql = "UPDATE limited SET main_task=main_task + 1,main_task_count=0 WHERE acc='$acc'";
         MySqlPDB::$pdo->query($sql);
 
         Common::Send("");
