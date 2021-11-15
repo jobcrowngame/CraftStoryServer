@@ -61,7 +61,7 @@ class CMD1051_1060{
         $PondIds = explode(",", $config['PondId']);
 
         // 重複チェック
-        $sql = "SELECT * FROM equipment WHERE item_guid=$itemGuid";
+        $sql = "SELECT * FROM equipment WHERE item_guid=$itemGuid AND isDiscard=0";
         $result = MySqlPDB::$pdo->query($sql)->fetch();
         if (!empty($result)){
             Common::error(1054001);
@@ -167,12 +167,39 @@ class CMD1051_1060{
         }
     }
 
-    // トータル設置済ブロック数を取得
-    public static function GetTotalSetBlockCount_1058($json){
+    // タスク
+    public static function MainTaskEnd_1059($json){
         $acc = $json->{'acc'};
-        $result = StatisticsClass::GetTotalSetBlockCount($acc);
-        $totalSetBlockCount = empty($result['totalSetBlockCount']) ? 0 : $result['totalSetBlockCount'];
-        Common::Send($totalSetBlockCount);        
-    }
+        $taskId = $json->{'taskId'};
 
+        $config = ConfigClass::ReadConfig('MainTask')[$taskId];
+        $clearCount = $config['ClearCount'];
+
+        $sql = "SELECT * FROM limited WHERE acc='$acc'";
+        $result = MySqlPDB::$pdo->query($sql)->fetch();
+        $curTaskId = $result['main_task'];
+        $curClearCount = $result['main_task_count'];
+
+        // タスクIDチェック
+        if  ($taskId != $curTaskId){
+            Common::error(1059001);
+            return;
+        }
+
+        // タスククリア数チェック
+        if  ($clearCount < $curClearCount){
+            Common::error(1059002);
+            return;
+        }
+
+        // ボーナス与える
+        $bonus = $config['Bonus'];
+        BonusClass::AddBonus($acc, $taskId);
+
+        // タスクデータ更新
+        $sql = "UPDATE limited SET main_task=main_task++,main_task_count=0 WHERE acc='$acc'";
+        MySqlPDB::$pdo->query($sql);
+
+        Common::Send("");
+    }
 }
