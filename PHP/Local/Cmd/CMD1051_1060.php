@@ -183,6 +183,7 @@ class CMD1051_1060{
         $config = ConfigClass::ReadConfig('MainTask')[$taskId];
         $clearCount = $config['ClearCount'];
         $bonus = $config['Bonus'];
+        $Type = $config['Type'];  
 
         $sql = "SELECT * FROM limited WHERE acc='$acc'";
         $result = MySqlPDB::$pdo->query($sql)->fetch();
@@ -195,10 +196,13 @@ class CMD1051_1060{
             return;
         }
 
-        // タスククリア数チェック
-        if  ($clearCount < $curClearCount){
-            Common::error(1059002);
-            return;
+        // チュートリアル以外
+        if  ($Type != 1 && $Type != 2 && $Type != 5){
+             // タスククリア数チェック
+            if  ($curClearCount < $clearCount){
+                Common::error(1059002);
+                return;
+            }
         }
 
         // ボーナス与える
@@ -210,5 +214,17 @@ class CMD1051_1060{
         MySqlPDB::$pdo->query($sql);
 
         Common::Send("");
+    }
+
+    // メインタスククリア数追加
+    public static function AddMainTaskClearCount_1060($json){
+        $acc = $json->{'acc'};
+        $count = $json->{'count'};
+
+         // タスクデータ更新
+         $sql = "UPDATE limited SET main_task_count=main_task_count + $count WHERE acc='$acc'";
+         MySqlPDB::$pdo->query($sql);
+ 
+         Common::Send("");
     }
 }
