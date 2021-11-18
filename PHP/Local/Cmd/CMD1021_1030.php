@@ -240,6 +240,8 @@ class CMD1021_1030{
             $columName = "guide_end3";
         }else if ($guidId == 4){
             $columName = "guide_end4";
+        }else if ($guidId == 6){
+            $columName = "guide_end5";
         }
 
 		$sql = "UPDATE limited SET $columName = 1 WHERE acc = '$acc'";

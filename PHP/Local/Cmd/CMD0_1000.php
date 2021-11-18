@@ -136,6 +136,7 @@ class CMD0_1000{
 				'guide_end2'=>$result['guide_end2'],
 				'guide_end3'=>$result['guide_end3'],
 				'guide_end4'=>$result['guide_end4'],
+				'guide_end5'=>$result['guide_end5'],
 				'nickname'=>$result['nickname'],
 				'comment'=>$result['comment'],
 				'email'=>$result['email'],
