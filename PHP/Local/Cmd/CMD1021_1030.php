@@ -25,28 +25,34 @@ class CMD1021_1030{
         
         for ($i = 0; $i < $config['Count01']; $i++){
             $result = BonusClass::GetRandomBonusByPond($config['Pond01']);
-            if (array_key_exists($result[0], $arr)){
-                $arr[$result[0]]++;
-            }else{
-                $arr[$result[0]] = 1;
+            if  (!empty($result[0])){
+                if (array_key_exists($result[0], $arr)){
+                    $arr[$result[0]]++;
+                }else{
+                    $arr[$result[0]] = 1;
+                }
             }
         }
 
         for ($i = 0; $i < $config['Count02']; $i++){
             $result = BonusClass::GetRandomBonusByPond($config['Pond02']);
-            if (array_key_exists($result[0], $arr)){
-                $arr[$result[0]]++;
-            }else{
-                $arr[$result[0]] = 1;
+            if  (!empty($result[0])){
+                if (array_key_exists($result[0], $arr)){
+                    $arr[$result[0]]++;
+                }else{
+                    $arr[$result[0]] = 1;
+                }
             }
         }
 
         for ($i = 0; $i < $config['Count03']; $i++){
             $result = BonusClass::GetRandomBonusByPond($config['Pond03']);
-            if (array_key_exists($result[0], $arr)){
-                $arr[$result[0]]++;
-            }else{
-                $arr[$result[0]] = 1;
+            if  (!empty($result[0])){
+                if (array_key_exists($result[0], $arr)){
+                    $arr[$result[0]]++;
+                }else{
+                    $arr[$result[0]] = 1;
+                }
             }
         }
 

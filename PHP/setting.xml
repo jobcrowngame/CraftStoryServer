@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
     <setting>
-        <Version>1.3.2</Version>
+        <Version>2.0.4</Version>
 
-        <LocalUrl>http://localhost/Local/Main.php</LocalUrl>
+        <LocalUrl>http://localhost/Server/PHP/Local/Main.php</LocalUrl>
         <UrlDevelop>13.230.170.40/Develop/Main.php</UrlDevelop>
         <UrlTest>13.230.170.40/Test/Main.php</UrlTest>
         <UrlRelease>13.230.170.40/Release/Main.php</UrlRelease>
