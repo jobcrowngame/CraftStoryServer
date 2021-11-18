@@ -128,6 +128,8 @@ try{
 				case 1058: CMD1051_1060::GetTotalSetBlockCount_1058($data); break;
                 case 1059: CMD1051_1060::MainTaskEnd_1059($data); break;
                 case 1060: CMD1051_1060::AddMainTaskClearCount_1060($data); break;
+
+                case 1061: CMD1061_1070::GetMaxBraveLevel_1061($data); break;
                 
                 case 6000: CMDOrder::SaveHomeData_6000($data); break;
                 case 6001: CMDOrder::LoadHomeData_6001($data); break;
