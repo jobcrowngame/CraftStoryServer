@@ -64,7 +64,8 @@ class ItemClass{
                                 equipSite = 0,
                                 newName = null, 
                                 islocked = 0,
-                                relationData = ''
+                                relationData = null,
+                                textureName = null
                             WHERE
                                 id = ". $row['id']);
                         break;
