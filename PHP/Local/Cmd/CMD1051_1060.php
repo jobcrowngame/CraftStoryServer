@@ -184,6 +184,7 @@ class CMD1051_1060{
         $clearCount = $config['ClearCount'];
         $bonus = $config['Bonus'];
         $Type = $config['Type'];  
+        $Next = $config['Next'];  
 
         $sql = "SELECT * FROM limited WHERE acc='$acc'";
         $result = MySqlPDB::$pdo->query($sql)->fetch();
@@ -197,7 +198,7 @@ class CMD1051_1060{
         }
 
         // チュートリアル以外
-        if  ($Type != 1 && $Type != 2 && $Type != 5){
+        if  ($Type != 1 && $Type != 2 && $Type != 5 && $Type != 11){
              // タスククリア数チェック
             if  ($curClearCount < $clearCount){
                 Common::error(1059002);
@@ -210,7 +211,7 @@ class CMD1051_1060{
         BonusClass::AddBonus($acc, $bonus);
 
         // タスクデータ更新
-        $sql = "UPDATE limited SET main_task=main_task + 1,main_task_count=0 WHERE acc='$acc'";
+        $sql = "UPDATE limited SET main_task=$Next,main_task_count=0 WHERE acc='$acc'";
         MySqlPDB::$pdo->query($sql);
 
         Common::Send("");
