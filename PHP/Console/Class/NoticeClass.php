@@ -6,6 +6,10 @@ class NoticeClass {
         $category = $post['category'];
         $newflag = $post['newflag'];
         $activedate = $post['activedate'];
+        $priority = $post['priority'];
+        if(!$priority) $priority = 'null';
+        $pickup = $post['pickup'];
+        if(!$pickup) $pickup = 'null';
         $title = $post['title'];
         $titleIcon = $post['titleIcon'];
         $detailIcon = $post['detailIcon'];
@@ -16,8 +20,8 @@ class NoticeClass {
             return 1;
         }
 
-        $sql = "INSERT INTO notice (category,newflag,activedate,title,titleIcon,detailIcon,url,text) 
-            VALUES ($category,$newflag,'$activedate','$title','$titleIcon','$detailIcon','$url','$text')";
+        $sql = "INSERT INTO notice (category,newflag,activedate,priority,pickup,title,titleIcon,detailIcon,url,text) 
+            VALUES ($category,$newflag,'$activedate',$priority,$pickup,'$title','$titleIcon','$detailIcon','$url','$text')";
         MySqlPDB::$pdo->query($sql);
     }
 
@@ -37,6 +41,10 @@ class NoticeClass {
         $category = $post['category'];
         $newflag = $post['newflag'];
         $activedate = $post['activedate'];
+        $priority = $post['priority'];
+        if(!$priority) $priority = 'null';
+        $pickup = $post['pickup'];
+        if(!$pickup) $pickup = 'null';
         $title = $post['title'];
         $titleIcon = $post['titleIcon'];
         $detailIcon = $post['detailIcon'];
@@ -60,13 +68,17 @@ class NoticeClass {
         $category = $post['category'];
         $newflag = $post['newflag'];
         $activedate = $post['activedate'];
+        $priority = $post['priority'];
+        if(!$priority) $priority = 'null';
+        $pickup = $post['pickup'];
+        if(!$pickup) $pickup = 'null';
         $title = $post['title'];
         $titleIcon = $post['titleIcon'];
         $detailIcon = $post['detailIcon'];
         $url = $post['url'];
         $text = $post['text'];
 
-        $sql = "UPDATE notice SET category=$category,newflag=$newflag,activedate='$activedate',title='$title',
+        $sql = "UPDATE notice SET category=$category,newflag=$newflag,activedate='$activedate',priority=$priority,pickup=$pickup,title='$title',
             titleIcon='$titleIcon',detailIcon='$detailIcon',url='$url',text='$text' 
             WHERE id=$id";
         MySqlPDB::$pdo->query($sql);

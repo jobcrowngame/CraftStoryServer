@@ -33,6 +33,14 @@
 <input type="date" name="activedate" style="width:160px" value='<?php echo date_format(new DateTime($result['activedate']), 'Y-m-d'); ?>'>
 <br>
 
+<label>優先度：</label>
+<input type='text' name='priority' value='<?php echo $result['priority']; ?>'>
+<br>
+
+<label>強制表示：</label>
+<input type='text' name='pickup' value='<?php echo $result['pickup']; ?>'>
+<br>
+
 <label>タイトル：</label>
 <input type='text' name='title' value='<?php echo $result['title']; ?>'>
 <br>

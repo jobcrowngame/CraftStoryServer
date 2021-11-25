@@ -19,6 +19,14 @@
 <input type="date" name="activedate" style="width:160px">
 <br>
 
+<label>優先度：</label>
+<input type='text' name='priority'>
+<br>
+
+<label>強制表示：</label>
+<input type='text' name='pickup'>
+<br>
+
 <label>タイトル：</label>
 <input type='text' name='title'>
 <br>

@@ -12,6 +12,8 @@
         <th width="100" height="30">category</th>
         <th width="100" height="30">newflag</th>
         <th width="200" height="30">activedate</th>
+        <th width="200" height="30">priority</th>
+        <th width="200" height="30">pickup</th>
     </tr>
     <tr>
 
@@ -34,6 +36,8 @@
             <td>".$row['category']."</td>
             <td>".$row['newflag']."</td>
             <td>".$row['activedate']."</td>
+            <td>".$row['priority']."</td>
+            <td>".$row['pickup']."</td>
             <form method='post' action='noticeEdit.php' id='example'>
                 <td><button type='submit' name='id' value='".$row['id']."'>改修</td>
             </form>
