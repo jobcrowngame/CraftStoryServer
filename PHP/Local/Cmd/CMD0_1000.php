@@ -118,7 +118,7 @@ class CMD0_1000{
 			}
 
 			// ログインボーナス
-			BonusClass::SendLoginBonus($acc);
+			// BonusClass::SendLoginBonus($acc);
 
 			// ログイン情報更新
 			UserClass::UpdateLoginMission($acc);

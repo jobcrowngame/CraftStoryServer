@@ -67,4 +67,12 @@ class Common{
 		}
 		return $retstr;
 	}
+
+    public static function ArrayToString($arr, $symbol){
+        $result = $arr[0];
+        for ($i = 1; $i < count($arr); $i++){
+            $result = $result.$symbol.$arr[$i];
+        }
+        return $result;
+    }
 }
