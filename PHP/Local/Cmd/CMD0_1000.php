@@ -98,6 +98,9 @@ class CMD0_1000{
 			$subscriptionLv02 = $result['subscriptionLv02'];
 			$subscriptionLv03 = $result['subscriptionLv03'];
 
+			// 本日始めのログインかのチェック
+			$firstLoginDaily =  $result['logined'] == 1 ? 0 : 1;
+
 			if ($subscriptionLv01 == 1 && $subscription_mail_added01 == 0){
 				EmailClass::AddEmailInItem($acc, 1);
 
@@ -146,6 +149,8 @@ class CMD0_1000{
 				'myGoodNum'=>$myGoodNum,
 				'mainTaskID'=>$result['main_task'],
 				'mainTaskClearedCount'=>$result['main_task_count'],
+
+				'firstLoginDaily'=>$firstLoginDaily,
 			));
 		} catch (PDOException $e) {
 			LoggerClass::E()->error($e);

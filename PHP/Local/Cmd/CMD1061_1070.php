@@ -34,6 +34,7 @@ class CMD1061_1070{
             $arr[]=array(
                 'id'=>$row['id'],
                 'type'=>$row['type'],
+                'themeTexture'=>$row['themeTexture'],
                 'items'=>$row['items'],
                 'itemCounts'=>$row['itemCounts'],
                 'start_at'=>$row['start_at'],
@@ -62,18 +63,18 @@ class CMD1061_1070{
 
         if (empty($result['loginBonus'])){
             $loginBonus = $id;
-            $loginBonusStep = $step;
+            $loginBonusStep = $step + 1;
         }else{
             if(in_array($id, $loginBonus)){
                 for ($i = 0; $i < count($loginBonus); $i++){
                     if ($loginBonus[$i] == $id){
-                        $loginBonusStep[$i] = $step;
+                        $loginBonusStep[$i] = $step + 1;
                         break;
                     }
                 }
             }else{
                 array_push($loginBonus,$id);
-                array_push($loginBonusStep,$step);
+                array_push($loginBonusStep,$step + 1);
             }
 
             $loginBonus = Common::ArrayToString($loginBonus, ",");
@@ -82,5 +83,19 @@ class CMD1061_1070{
 
         $sql = "UPDATE limited SET loginBonus='$loginBonus',loginBonusStep='$loginBonusStep' WHERE acc = '$acc'";
         MySqlPDB::$pdo->query($sql);
+
+        // ボーナスを与える
+        $sql = "SELECT * FROM loginbonus WHERE active = 1 AND start_at < NOW() AND end_at > NOW()";
+        $result = MySqlPDB::$pdo->query($sql);
+
+        while($row = $result->fetch(PDO::FETCH_ASSOC)){
+            if ($row['id'] == $id){
+                $itemId = explode(",", $row['items']);
+                $count = explode(",", $row['itemCounts']);
+                ItemClass::AddItem($acc, $itemId[$step], $count[$step]);
+            }
+        }
+
+        Common::Send("");
     }
 }
