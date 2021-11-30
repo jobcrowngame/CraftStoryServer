@@ -62,14 +62,6 @@ class CMD1051_1060{
         $config = ConfigClass::ReadConfig('Equipment')[$equipmentId];
         $PondIds = explode(",", $config['PondId']);
 
-        // 重複チェック
-        $sql = "SELECT * FROM equipment WHERE item_guid=$itemGuid AND isDiscard=0";
-        $result = MySqlPDB::$pdo->query($sql)->fetch();
-        if (!empty($result)){
-            Common::error(1054001);
-            return;
-        }
-
         // スキルランダム追加
         for ($i = 0; $i < count($PondIds); $i++){
             $result = BonusClass::GetRandomBonusByPond($PondIds[$i]);
