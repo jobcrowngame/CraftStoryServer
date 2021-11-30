@@ -92,7 +92,7 @@ class CMD1061_1070{
             if ($row['id'] == $id){
                 $itemId = explode(",", $row['items']);
                 $count = explode(",", $row['itemCounts']);
-                ItemClass::AddItem($acc, $itemId[$step], $count[$step]);
+                ItemClass::AddItems4($acc, $itemId[$step], $count[$step]);
             }
         }
 

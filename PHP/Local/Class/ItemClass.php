@@ -14,6 +14,16 @@ class ItemClass{
             }
         }
     }
+
+    // コインもできるアイテムを追加
+    public static function AddItems4($acc, $itemId, $itemCount){
+        switch ($itemId){
+            case 9000: ShopClass::AddCoin($acc,'coin1',$itemCount); break;
+            case 9001: ShopClass::AddCoin($acc,'coin2',$itemCount); break;
+            case 9002: ShopClass::AddCoin($acc,'coin3',$itemCount); break;
+            default: ItemClass::AddItem($acc, $itemId, $itemCount); break;
+        }
+    }
     
     // 装備を与える
     public static function AddItem3($acc, $itemId, $count, $site) {
