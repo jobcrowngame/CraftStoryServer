@@ -167,8 +167,6 @@ class ItemClass{
         $sql = "SELECT id FROM equipment WHERE isDiscard = 1";
         $result = MySqlPDB::$pdo->query($sql)->fetch();
 
-        print_r($result);
-
         if  (empty($result)){
             $sql = "INSERT INTO equipment (item_guid, skills) 
                 VALUES ($itemGuid, '$skills')";
@@ -177,11 +175,11 @@ class ItemClass{
 
             $sql = "UPDATE equipment 
                 SET item_guid=$itemGuid,
-                    skills=$skills,
+                    skills='$skills',
                     isDiscard=0
                 WHERE id=$id";
         }
-
+echo $sql;
         MySqlPDB::$pdo->query($sql);
     }
 }
