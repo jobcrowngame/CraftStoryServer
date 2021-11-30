@@ -15,6 +15,7 @@ class ItemClass{
         }
     }
     
+    // 装備を与える
     public static function AddItem3($acc, $itemId, $count, $site) {
         $sql = "INSERT INTO items (acc, itemId, count, equipSite) VALUES ('$acc',$itemId,$count,$site)";
         MySqlPDB::$pdo->query($sql);
@@ -179,7 +180,7 @@ class ItemClass{
                     isDiscard=0
                 WHERE id=$id";
         }
-echo $sql;
+
         MySqlPDB::$pdo->query($sql);
     }
 }
