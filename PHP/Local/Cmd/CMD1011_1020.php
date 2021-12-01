@@ -245,6 +245,10 @@ class CMD1011_1020{
         $acc = $json->{'acc'};
 		$page = $json->{'page'};
 
+        $sql = "SELECT count(*) FROM email WHERE isDiscard=0 AND acc = '$acc'";
+        $result = MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+        $maxCount = $result['count(*)'];
+
         $xml = @simplexml_load_file('setting.xml');
         $selectCount = $xml->setting[0]->EmailSearchCount;
         $offset = ($page - 1) * $selectCount;
@@ -255,6 +259,7 @@ class CMD1011_1020{
             LIMIT $selectCount OFFSET $offset";
 
         $result = MySqlPDB::$pdo->query($sql);
+        $emails = array();
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
             $emails[]=array(
                 'id'=>$row['email_id'],
@@ -267,10 +272,12 @@ class CMD1011_1020{
             );
         }
 
-        if (empty($emails))
-            Common::Send("");
-        else
-            Common::Send($emails);
+        $arr = array(
+            'maxCount'=>$maxCount,
+            'data'=>$emails,
+        );
+
+        Common::Send($arr);
     }
 
     public static function ReadEmail_1020($json){
