@@ -224,23 +224,15 @@ class CMD1001_1010{
             } else {
                 $items = Common::GetItemsByBonus($config['Bonus']);
                 foreach (array_keys($items) as $key) {
-                    if ($key == 9000 || $key == 9001 || $key == 9002){
-                        switch ($key){
-                            case 9000: ShopClass::UpdateCoin($acc, 'coin1', $items[$key] + $result['coin1']); break;
-                            case 9001: ShopClass::UpdateCoin($acc, 'coin2', $items[$key] + $result['coin2']); break;
-                            case 9002: ShopClass::UpdateCoin($acc, 'coin3', $items[$key] + $result['coin3']); break;
-                        }
-                    }else{
-                        ItemClass::AddItem($acc, $key, $items[$key]);
-                    }
+                    ItemClass::AddItems4($acc, $key, $items[$key]);
                 }
             }
 
             // コイン消耗
             switch  ($config['CostItemID']){
-                case 9000: ShopClass::UpdateCoin($acc, 'coin1', $result['coin1'] - $config['CostCount']); break;
-                case 9001: ShopClass::UpdateCoin($acc, 'coin2', $result['coin2'] - $config['CostCount']); break;
-                case 9002: ShopClass::UpdateCoin($acc, 'coin3', $result['coin3'] - $config['CostCount']); break;
+                case 9000: ShopClass::CostCoin($acc, 'coin1', $config['CostCount']); break;
+                case 9001: ShopClass::CostCoin($acc, 'coin2', $config['CostCount']); break;
+                case 9002: ShopClass::CostCoin($acc, 'coin3', $config['CostCount']); break;
                 case 9004: ItemClass::RemoveItemByItemId($acc, $config['CostItemID'], $config['CostCount']); break;
             }
 

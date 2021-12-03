@@ -1,13 +1,13 @@
 <?php
 
 class ShopClass{
-    public static function UpdateCoin($acc, $coin, $count){
-        $sql = "UPDATE userdata SET ".$coin." = ".$count." WHERE acc='".$acc."'";
-        MySqlPDB::$pdo->query($sql);
-    }
-
     public static function AddCoin($acc, $coin, $count){
-        $sql = "UPDATE userdata SET $coin = $coin + $count WHERE acc='$acc'";
+        if  ($coin == 'coin3'){
+            $sql = "UPDATE userdata SET $coin = $coin + $count,totalPoint=totalPoint+$count WHERE acc='$acc'";
+        }else{
+            $sql = "UPDATE userdata SET $coin = $coin + $count WHERE acc='$acc'";
+        }
+
         MySqlPDB::$pdo->query($sql);
     }
 
