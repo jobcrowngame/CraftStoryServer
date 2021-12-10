@@ -203,9 +203,7 @@ class CMD1011_1020{
 
         // 設計図主人にポイントをくれる
         ShopClass::AddCoin($result['acc'], 'coin3', $cost);
-        $emailTitle = "マイショップ";
-        $emailMessage = "設計図".$result['newname']."が売られました。\r\n".$cost." ポイントもらいました。";
-        EmailClass::AddEmail($result['acc'],$emailTitle, $emailMessage);
+        EmailClass::AddEmailInItem($acc, 2004, [$result['newname'], $cost]);
 
         // 販売数追加
         $sql ="UPDATE myshop SET sellNum=sellNum+1 WHERE myshopid=$guid";

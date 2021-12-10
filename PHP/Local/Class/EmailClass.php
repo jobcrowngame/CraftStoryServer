@@ -7,11 +7,17 @@ class EmailClass{
         MySqlPDB::$pdo->query($sql);
     }
 
-    public static function AddEmailInItem($acc, $mailId){
+    public static function AddEmailInItem($acc, $mailId, $repl = null){
         $config = ConfigClass::ReadConfig('Mail');
         $title = $config[$mailId]['Title'];
         $msg = $config[$mailId]['Msg'];
         $relatedData = $config[$mailId]['Data'];
+
+        if($repl) {
+            for($i = 0; $i < count($repl); $i++){
+                $msg = str_replace("%$i%", $repl[$i], $msg);   
+            }
+        }
 
         $sql ="SELECT email_id FROM email WHERE isDiscard=1";
         $result = MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
