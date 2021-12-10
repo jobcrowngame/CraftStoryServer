@@ -34,4 +34,27 @@ class EmailClass{
         
         MySqlPDB::$pdo->query($sql);
     }
+
+    // いいねによってまらったポイントのメッセージを送る
+    public static function AddFromGoodPointMail($acc){
+        $sql = "SELECT from_good_point,from_gooded_point FROM limited WHERE acc='$acc'";
+        $result = MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        $from_good_point = $result['from_good_point'];
+        $from_gooded_point = $result['from_gooded_point'];
+
+        // もらったポイントがないとスキップ
+        if($from_good_point == 0 && $from_gooded_point == 0)
+            return;
+
+        $emailTitle = "いいねによるポイント獲得案内";
+        $emailMessage = "「いいね」をしたことで、累計[".$from_good_point."]ポイント獲得しました！
+「いいね」をされたことで、累計[".$from_gooded_point."]ポイント獲得しました！
+
+「いいね」の回数は毎日0時にリセットされるので、またいいねをしてみてね！";
+        EmailClass::AddEmail($acc,$emailTitle, $emailMessage);
+
+        $sql = "UPDATE limited SET from_good_point = 0, from_gooded_point = 0 WHERE acc = '$acc'";
+        MySqlPDB::$pdo->query($sql);
+    }
 }

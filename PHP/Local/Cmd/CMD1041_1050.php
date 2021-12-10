@@ -195,6 +195,8 @@ class CMD1041_1050{
         $acc = $json->{'acc'};
         $targetAcc = $json->{'targetAcc'};
 
+        $addPointNum=3;
+
         // 自分の毎日いいね数チェック
         $sql = "SELECT goodNum_daily FROM limited WHERE acc = '$acc'";
         $result = MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
@@ -204,12 +206,18 @@ class CMD1041_1050{
         }
 
         // 自分の毎日いいね数追加
-        $sql = "UPDATE limited SET goodNum_daily = goodNum_daily + 1 WHERE acc = '$acc'";
+        $sql = "UPDATE limited SET goodNum_daily = goodNum_daily + 1, from_good_point=from_good_point+$addPointNum WHERE acc = '$acc'";
         MySqlPDB::$pdo->query($sql);
 
+        // 自分のポイント追加
+        ShopClass::AddCoin($acc,'coin3',$addPointNum);
+
         // 目標の総いいね数追加
-        $sql = "UPDATE limited SET goodNum_total = goodNum_total + 1 WHERE acc = '$targetAcc'";
+        $sql = "UPDATE limited SET goodNum_total = goodNum_total + 1, from_gooded_point=from_gooded_point+$addPointNum WHERE acc = '$targetAcc'";
         MySqlPDB::$pdo->query($sql);
+
+        // 相手のポイント追加
+        ShopClass::AddCoin($targetAcc,'coin3',$addPointNum);
 
         Common::Send("");
     }

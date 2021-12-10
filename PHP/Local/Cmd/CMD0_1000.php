@@ -101,6 +101,11 @@ class CMD0_1000{
 			// 本日始めのログインかのチェック
 			$firstLoginDaily =  $result['logined'] == 1 ? 0 : 1;
 
+			// いいねによってもらったポイントメッセージを送る
+			if ($firstLoginDaily == 1){
+				EmailClass::AddFromGoodPointMail($acc);
+			}
+
 			if ($subscriptionLv01 == 1 && $subscription_mail_added01 == 0){
 				EmailClass::AddEmailInItem($acc, 1);
 
