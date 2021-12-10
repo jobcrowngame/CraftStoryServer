@@ -62,4 +62,15 @@ class StatisticsClass{
         $sql = "UPDATE statistics_user SET totalSetBlockCount=totalSetBlockCount + 1 WHERE acc='$acc'";
         MySqlPDB::$pdo->query($sql);
     }
+
+    public static function GetTotalUploadBlueprintCount($acc) {
+        $sql = "SELECT totalUploadBlueprintCount FROM statistics_user WHERE acc='$acc'";
+        return MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+    }    
+
+    public static function AddTotalUploadBlueprintCount($acc){
+        StatisticsClass::CheckStatisticsTable($acc);
+        $sql = "UPDATE statistics_user SET totalUploadBlueprintCount=totalUploadBlueprintCount + 1 WHERE acc='$acc'";
+        MySqlPDB::$pdo->query($sql);
+    }
 }
