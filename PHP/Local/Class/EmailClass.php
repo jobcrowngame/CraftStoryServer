@@ -12,6 +12,7 @@ class EmailClass{
         $title = $config[$mailId]['Title'];
         $msg = $config[$mailId]['Msg'];
         $relatedData = $config[$mailId]['Data'];
+        if($relatedData=="N") $relatedData = null;
 
         if($repl) {
             for($i = 0; $i < count($repl); $i++){

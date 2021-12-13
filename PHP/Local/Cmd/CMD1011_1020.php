@@ -210,7 +210,7 @@ class CMD1011_1020{
 
         // 設計図主人にポイントをくれる
         ShopClass::AddCoin($result['acc'], 'coin3', $cost);
-        EmailClass::AddEmailInItem($acc, 2004, [$result['newname'], $cost]);
+        EmailClass::AddEmailInItem($result['acc'], 2004, [$result['newname'], $cost]);
 
         // 販売数追加
         $sql ="UPDATE myshop SET sellNum=sellNum+1 WHERE myshopid=$guid";
