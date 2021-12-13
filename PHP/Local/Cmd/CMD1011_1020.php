@@ -103,14 +103,12 @@ class CMD1011_1020{
         }
         MySqlPDB::$pdo->query($sql);
 
-        /* statisticsテーブルの拡張ができないので仮コード
         $result = StatisticsClass::GetTotalUploadBlueprintCount($acc);
         $totalUploadBlueprintCount = empty($result['totalUploadBlueprintCount']) ? 0 : $result['totalUploadBlueprintCount'];
         if($totalUploadBlueprintCount == 0) {
             EmailClass::AddEmailInItem($acc, 2003);
-        }*/
-        EmailClass::AddEmailInItem($acc, 2003);
-        //StatisticsClass::AddTotalUploadBlueprintCount($acc);
+        }
+        StatisticsClass::AddTotalUploadBlueprintCount($acc);
 
         Common::Send("");
     }

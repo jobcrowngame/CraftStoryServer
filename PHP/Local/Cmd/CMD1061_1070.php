@@ -100,13 +100,9 @@ class CMD1061_1070{
     }
 
     public static function GetTotalUploadBlueprintCount_1064($json){
-        /* statisticsテーブルの拡張ができないので仮コード
+        $acc = $json->{'acc'};
         $result = StatisticsClass::GetTotalUploadBlueprintCount($acc);
         $totalUploadBlueprintCount = empty($result['totalUploadBlueprintCount']) ? 0 : $result['totalUploadBlueprintCount'];
-        if($totalUploadBlueprintCount == 0) {
-            EmailClass::AddEmailInItem($acc, 2003);
-        }*/
-        $totalUploadBlueprintCount = 0;
         Common::Send("$totalUploadBlueprintCount");
     }
 }
