@@ -99,7 +99,7 @@ class CMD1001_1010{
 
     public static function Craft_1008($json){
 		$acc = $json->{'acc'};
-		$craft = $json->{'creaftId'};
+		$craft = $json->{'craftId'};
 		$count = $json->{'count'};
     
         $config = ConfigClass::ReadConfig('Craft');
