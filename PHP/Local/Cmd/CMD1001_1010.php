@@ -208,7 +208,7 @@ class CMD1001_1010{
             }
 
             // 制限回数チェック
-            if ($config['CostItemID'] == 9004 && $config['LimitedCount'] != -1) {
+            if ($config['LimitedCount'] != -1) {
                 $shopLimitedCount = ShopLimitedCountClass::GetShopLimitedCount($acc, $shopId)['limitedCount'];
                 if($shopLimitedCount >= $config['LimitedCount']) {
                     Common::error(1010005);
@@ -237,7 +237,7 @@ class CMD1001_1010{
             }
 
             // 制限回数更新
-            if ($config['CostItemID'] == 9004 && $config['LimitedCount'] != -1) {
+            if ($config['LimitedCount'] != -1) {
                 ShopLimitedCountClass::AddLimitedCount($acc, $shopId);
             }
             Common::Send("");
