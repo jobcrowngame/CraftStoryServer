@@ -28,14 +28,21 @@ class CMD1051_1060{
     public static function GetEquipmentInfoList_1053($json){
         $acc = $json->{'acc'};
 
+        $config = ConfigClass::ReadConfig('Item');
+
         $sql = "SELECT items.id,items.itemId,items.islocked,equipment.skills,equipment.isDiscard FROM items 
             LEFT JOIN equipment ON items.id = equipment.item_guid 
             WHERE items.isDiscard=0 
-            AND items.acc='$acc' 
-            AND items.itemId > 10000";
+            AND items.acc='$acc'";
         $result = MySqlPDB::$pdo->query($sql);
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
             if  ($row['isDiscard'] == 1)
+                continue;
+
+            if  (empty($config[$row['itemId']]))
+                continue;
+
+            if ($config[$row['itemId']]['Type'] != 5001 && $config[$row['itemId']]['Type'] != 5002)
                 continue;
 
             $items[]=array(
