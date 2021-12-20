@@ -70,7 +70,7 @@ class CMD1021_1030{
     }
 
     public static function GetNoticeList_1023($json){
-        $sql = "SELECT * FROM notice ORDER BY CASE WHEN priority IS NOT NULL THEN 0 ELSE 1 END, priority, activedate desc";
+        $sql = "SELECT * FROM notice WHERE active=1 ORDER BY CASE WHEN priority IS NOT NULL THEN 0 ELSE 1 END, priority, activedate DESC;";
         $result = MySqlPDB::$pdo->query($sql);
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
             $items[]=array(
