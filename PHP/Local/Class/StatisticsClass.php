@@ -73,4 +73,11 @@ class StatisticsClass{
         $sql = "UPDATE statistics_user SET totalUploadBlueprintCount=totalUploadBlueprintCount + 1 WHERE acc='$acc'";
         MySqlPDB::$pdo->query($sql);
     }
+
+
+    public static function BlueprintBusiness($from, $to, $name, $price){
+        $sql = "INSERT INTO blueprint_business (from_user,to_user,blueprint_name,price) 
+            VALUES ('$from','$to','$name',$price)";
+        MySqlPDB::$pdo->query($sql);
+    }
 }

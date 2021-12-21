@@ -216,6 +216,9 @@ class CMD1011_1020{
         $sql ="UPDATE myshop SET sellNum=sellNum+1 WHERE myshopid=$guid";
         MySqlPDB::$pdo->query($sql);
 
+        // 設計図販売記録
+        StatisticsClass::BlueprintBusiness($result['acc'], $acc, $result['newname'], $result['price']);
+
         Common::Send("");
     }
 
