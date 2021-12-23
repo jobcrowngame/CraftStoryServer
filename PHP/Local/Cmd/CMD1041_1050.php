@@ -13,13 +13,21 @@ class CMD1041_1050{
             return;
         }
 
-        $sql = "INSERT INTO exchange_points(acc,email,point,money) VALUES('$acc','$email',$point,$money)";
+        // ランダムGUID生成
+        for($i = 1; $i < 30; $i++){
+            $guid = Common::random(8);
+            $sql = "SELECT guid FROM exchange_points WHERE guid='$guid'";
+            $result = MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+            if (empty($result)){
+                break;
+            }
+        }
+
+        // データ追加
+        $sql = "INSERT INTO exchange_points(guid,acc,email,point,money) VALUES('$guid','$acc','$email',$point,$money)";
         MySqlPDB::$pdo->query($sql);
 
-        $sql = "SELECT id FROM exchange_points WHERE acc='$acc' ORDER BY id DESC LIMIT 1;";
-        $result = MySqlPDB::$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
-        $guid = $result['id'];
-
+        // メール更新
         $sql = "UPDATE userdata SET email='$email' WHERE acc='$acc'";
         MySqlPDB::$pdo->query($sql);
 
