@@ -3,7 +3,7 @@
 class BonusClass{
     public static function GetRandomBonusByPond($pondId){
         $bonus = 0;
-        $random = rand(0, 1000);
+        $random = rand(0, 10000);
         $config = ConfigClass::ReadConfig('RandomBonusPond')[$pondId];
         $curPercent = 0;
 
@@ -75,7 +75,7 @@ class BonusClass{
     }
     
     public static function GetRouletteIndex($acc, $rouletteId){
-        $random = rand(0, 1000);
+        $random = rand(0, 10000);
         $config = ConfigClass::ReadConfig('Roulette')[$rouletteId];
         $list = explode(",", $config['CellList']);
         $index = 0;
