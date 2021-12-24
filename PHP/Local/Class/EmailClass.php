@@ -54,11 +54,12 @@ class EmailClass{
         if($from_good_point == 0 && $from_gooded_point == 0)
             return;
 
-        $emailTitle = "いいねによるポイント獲得案内";
+        $emailTitle = "いいねによるポイント獲得";
         $emailMessage = "「いいね」をしたことで、累計[".$from_good_point."]ポイント獲得しました！
 「いいね」をされたことで、累計[".$from_gooded_point."]ポイント獲得しました！
 
-「いいね」の回数は毎日0時にリセットされるので、またいいねをしてみてね！";
+「いいね」の回数は毎日0時にリセットされるので、
+またいいねをしてみてね！";
         EmailClass::AddEmail($acc,$emailTitle, $emailMessage);
 
         $sql = "UPDATE limited SET from_good_point = 0, from_gooded_point = 0 WHERE acc = '$acc'";
